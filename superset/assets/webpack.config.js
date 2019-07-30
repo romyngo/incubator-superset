@@ -24,7 +24,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+// const TerserPlugin = require('terser-webpack-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -123,6 +123,7 @@ const config = {
   },
   output,
   optimization: {
+    minimize: false,
     splitChunks: {
       chunks: 'all',
       automaticNameDelimiter: '-',
@@ -268,6 +269,7 @@ const config = {
   },
 };
 
+/*
 if (!isDevMode) {
   config.optimization.minimizer = [
     new TerserPlugin({
@@ -277,6 +279,7 @@ if (!isDevMode) {
     }),
   ];
 }
+*/
 
 // Bundle analyzer is disabled by default
 // Pass flag --analyzeBundle=true to enable

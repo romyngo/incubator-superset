@@ -62,7 +62,7 @@ USER superset
 
 RUN cd superset/assets \
     && npm ci \
-    && npm run build \
+    && npm run build --max-old-space-size=256 \
     && rm -rf node_modules
 
 COPY contrib/docker/docker-init.sh .
